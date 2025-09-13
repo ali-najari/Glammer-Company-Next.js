@@ -1,0 +1,16 @@
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1896 / 892; 
+    overflow: hidden; 
+
+    .firstImage {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

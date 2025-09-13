@@ -1,0 +1,63 @@
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .selectInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .selectInput option {
+    padding: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .priceRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .paymentButton {
+    margin-top: 15px;
+    padding: 12px;
+    background: #4caf50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #43a047;
+    }
+  }
+}

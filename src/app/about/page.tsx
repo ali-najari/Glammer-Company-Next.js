@@ -1,14 +1,14 @@
 "use client";
 
-import Home from "@/components/home";
+import About from "@/components/about";
 import AppLayout from "@/components/shared/app-layout";
 
-const HomePage = () => {
+const AboutUsPage = () => {
   return (
     <AppLayout>
-      <Home />
+      <About />
     </AppLayout>
   );
 };
 
-export default HomePage;
+export default AboutUsPage;

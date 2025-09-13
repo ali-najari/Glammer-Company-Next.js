@@ -1,0 +1,133 @@
+.mainWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto; /* let content decide */
+  width: 100%;
+  max-width: 1000px; /* instead of fixed width */
+  margin: 0 auto; /* center horizontally */
+  padding: 24px;
+  background-color: inherit;
+  border: solid 1px #BAB8B1;
+  border-radius: 4px;
+  transition: ease 0.3s;
+
+  .leftSide {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 56px;
+
+    .icon {
+      padding: 8px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 120%;
+    }
+  }
+
+  .between {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    .price {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 120%;
+    }
+
+    button {
+      width: 132px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      background-color: #e9e6dd;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 120%;
+      cursor: pointer;
+      transition: ease 0.3s;
+    }
+  }
+
+  &:hover {
+    background-color: #c1ff72;
+    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1);
+
+    button {
+      background-color: #1f2a2e;
+      color: #c1ff72;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 80%;
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+
+    .leftSide,
+    .between,
+    .rightSide {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .between {
+      margin: 12px 0;
+      justify-content: flex-start;
+    }
+
+    .rightSide {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 20px;
+    }
+
+    .between {
+      font-size: 14px;
+    }
+
+    .rightSide {
+      gap: 10px;
+
+      .price {
+        font-size: 18px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

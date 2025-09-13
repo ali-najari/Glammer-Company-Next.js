@@ -1,0 +1,192 @@
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 260px 0px 260px;
+  gap: 40px;
+
+  .footerTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .firstSpan {
+      font-size: 12px;
+    }
+
+    .subscribeInput {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 50px;
+
+      button {
+        height: 50px;
+        background-color: #c1ff72;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: ease 0.3s;
+        font-size: 12px;
+        padding: 0px 20px;
+      }
+    }
+
+    .secondSpan {
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    .footerIcons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .divider {
+    border: gray 1px solid;
+    width: 100%;
+  }
+
+  .footerBetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    gap: 30px;
+
+    .footerBetweenText {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .footerBetweenSpan {
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        width: 100%;
+      }
+
+      button {
+        height: 50px;
+        width: 150px;
+        background-color: #c1ff72;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: ease 0.3s;
+        font-size: 12px;
+        padding: 0px 20px;
+      }
+    }
+
+    .footerBetweenLinks {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px 50px;
+      align-items: start;
+
+      a {
+        text-decoration: none;
+        color: #6c6c6c;
+        font-size: 14px;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .logoImage {
+    align-self: end;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 80px 100px 0px 100px;
+
+    .footerBetween {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+
+      .footerBetweenText {
+        align-items: flex-start;
+      }
+
+      .footerBetweenLinks {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+    }
+
+    .logoImage {
+      align-self: flex-end;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 40px 0px 40px;
+
+    .footerTop {
+      flex-direction: column; 
+      gap: 35;
+
+      .subscribeInput {
+        flex-direction: column;
+        align-self: flex-start;
+        margin-bottom: 20px;
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    }
+
+    .footerBetween {
+      .footerBetweenLinks {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .logoImage {
+      align-self: flex-end;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 20px 0px 20px;
+
+    .footerTop {
+      text-align: center;
+      align-items: center;
+      .firstSpan,
+      .secondSpan {
+        font-size: 10px;
+      }
+    }
+
+    .footerBetween {
+      .footerBetweenText {
+        .footerBetweenSpan {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

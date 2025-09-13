@@ -1,0 +1,162 @@
+$header-height: 80px;
+$sidebar-width: 250px;
+$mobile-breakpoint: 1100px;
+
+.mainWrapper {
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 20px;
+  background: #fff;
+  position: relative;
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .logoIcon {
+      width: 165px;
+      height: 40px;
+    }
+
+    .headerLinks {
+      display: flex;
+      gap: 8px;
+
+      a {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          color: black;
+          background-color: #c1ff72;
+          border-radius: 8px;
+          transition: ease 0.3s;
+        }
+      }
+    }
+  }
+
+  .headerButtons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .phoneNumber {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    button {
+      width: 136px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: ease 0.3s;
+    }
+
+    .bookButton button {
+      background-color: #1f2a2e;
+      color: white;
+    }
+
+    .signButton button {
+      background-color: #c1ff72;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    margin: 30px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: $sidebar-width;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+
+    a {
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+      padding: 5px 10px;
+
+      &:hover {
+        align-self: flex-start;
+        color: black;
+        background-color: #c1ff72;
+        border-radius: 8px;
+        transition: ease 0.3s;
+      }
+    }
+    .bookButton button,
+    .signButton button {
+      width: 100%;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: ease 0.3s;
+    }
+
+    .bookButton button {
+      background-color: #1f2a2e;
+      color: white;
+    }
+
+    .signButton button {
+      background-color: #c1ff72;
+    }
+
+    .closeBtn {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    justify-content: space-between;
+    .headerLeft {
+      .headerLinks {
+        display: none;
+      }
+    }
+    .headerButtons {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+    }
+  }
+}

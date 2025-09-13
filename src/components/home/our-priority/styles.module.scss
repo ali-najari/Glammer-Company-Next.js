@@ -1,0 +1,257 @@
+.mainWrapper {
+  height: auto;
+  background-color: #1f2a2e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 20px;
+  position: relative;
+  top: -4px;
+  align-items: center;
+
+  .texts {
+    display: flex;
+    justify-content:space-around ;
+    width: 100%;
+    gap: 20px;
+
+    .leftTexts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-size: 15px;
+        line-height: 22px;
+        font-weight: 600;
+        background-color: #3e545d;
+        color: #ffffff;
+        border-radius: 32px;
+        padding: 0 16px;
+      }
+
+      .subtitle {
+        color: #ffffff;
+        font-size: 52px;
+        line-height: 60px;
+        font-weight: 600;
+        letter-spacing: -1%;
+      }
+    }
+
+    .rightTexts {
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .description {
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      .allServicesLink {
+        color: #c1ff72;
+        font-size: 14px;
+        text-decoration: underline;
+
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .pictures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 20px;
+    padding: 40px 0;
+
+    .pictureItem {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .image {
+        width: 350px;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        background-color: #ffffff;
+        padding-left: 10px;
+        border-radius: 4px;
+        position: relative;
+        top: -20px;
+
+        .labelNum {
+          font-size: 16px;
+          color: #1f2a2e;
+          padding: 5px;
+        }
+
+        .labelTitle {
+          font-size: 22px;
+          font-weight: 600;
+          padding: 8px;
+        }
+
+        a {
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            background-color: #c1ff72;
+            border: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .texts {
+      flex-direction: column;
+      gap: 12px;
+
+      .leftTexts .subtitle {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      .rightTexts .description {
+        font-size: 13px;
+      }
+    }
+
+    .pictures {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      .pictureItem {
+        .image {
+          width: 100%;
+          max-width: 240px;
+          height: auto;
+        }
+        .label {
+          .labelNum {
+            font-size: 11px;
+          }
+          .labelTitle {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  // 📟 موبایل بزرگ / تبلت کوچک (481px–768px)
+  @media (max-width: 768px) and (min-width: 481px) {
+    .texts {
+      flex-direction: column;
+      gap: 16px;
+
+      .leftTexts .subtitle {
+        font-size: 28px;
+        line-height: 36px;
+      }
+
+      .rightTexts .description {
+        font-size: 14px;
+      }
+    }
+
+    .pictures {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+
+      .pictureItem {
+        .image {
+          width: 260px;
+          height: 200px;
+        }
+        .label {
+          .labelNum {
+            font-size: 13px;
+          }
+          .labelTitle {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  // 💻 تبلت / لپ‌تاپ کوچک (769px–1024px)
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .texts {
+      flex-direction: column;
+      gap: 20px;
+
+      .leftTexts .subtitle {
+        font-size: 34px;
+        line-height: 42px;
+      }
+
+      .rightTexts .description {
+        font-size: 15px;
+      }
+    }
+
+    .pictures {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+
+      .pictureItem {
+        .image {
+          width: 300px;
+          height: 240px;
+        }
+        .label {
+          .labelNum {
+            font-size: 14px;
+          }
+          .labelTitle {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  // 🖥 دسکتاپ (بالای 1024px)
+  @media (min-width: 1025px) {
+    .pictures {
+      grid-template-columns: repeat(4, 1fr);
+      .pictureItem {
+        .image {
+          width: 350px;
+          height: 300px;
+        }
+        .label {
+          .labelNum {
+            font-size: 16px;
+          }
+          .labelTitle {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+}
