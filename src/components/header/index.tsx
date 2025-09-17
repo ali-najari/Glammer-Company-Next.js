@@ -94,8 +94,11 @@ const Header = () => {
         <div className={styles.bookButton}>
           <button
             onClick={() => {
-              setIsOpen(false);
-              setIsBookingOpen(true);
+              if (isAuthenticated()) {
+                setIsBookingOpen(true);
+              } else {
+                void router.push("/sign-in");
+              }
             }}
           >
             Book a service
