@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import SingleTicket from "./single-ticket";
 import styles from "./styles.module.scss";
@@ -12,10 +12,22 @@ import deepClean from "../../../../public/landingPage/tranparency-pricing/deepCl
 import weeklyRefresh from "../../../../public/landingPage/tranparency-pricing/weeklyRefresh.png";
 import deluxeClean from "../../../../public/landingPage/tranparency-pricing/deluxeClean.png";
 import { servicesData } from "@/data/services/services";
+import { Context } from "@/context/mainContext";
+import { useRouter } from "next/navigation";
 
 const TransparentPrice = () => {
   const [selectedService, setSelectedService] =
     useState<ISingleTicketProps | null>(null);
+
+  const router = useRouter();
+
+  const { isAuthenticated } = useContext(Context);
+
+  useEffect(() => {
+    if (selectedService && !isAuthenticated()) {
+      void router.push("/sign-in");
+    }
+  }, [selectedService, isAuthenticated, router]);
 
   const tickets: ISingleTicketProps[] = [
     {
@@ -85,7 +97,7 @@ const TransparentPrice = () => {
         onClose={() => setSelectedService(null)}
         title="Book a Cleaning Service"
       >
-        {selectedService && (
+        {isAuthenticated() && selectedService && (
           <BookingForm
             serviceName={selectedService.title}
             price={selectedService.price}

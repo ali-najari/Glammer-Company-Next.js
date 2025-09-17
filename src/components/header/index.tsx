@@ -50,7 +50,17 @@ const Header = () => {
           <span>+1 0239 0310</span>
         </div>
         <div className={styles.bookButton}>
-          <button onClick={() => setIsBookingOpen(true)}>Book a service</button>
+          <button
+            onClick={() => {
+              if (isAuthenticated()) {
+                setIsBookingOpen(true);
+              } else {
+                void router.push("/sign-in");
+              }
+            }}
+          >
+            Book a service
+          </button>
         </div>
         {isAuthenticated() ? (
           <div className={styles.signButton}>
