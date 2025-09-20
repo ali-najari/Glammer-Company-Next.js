@@ -14,7 +14,7 @@ const withAuth = (Component: React.FC) => {
       if (storedUser) {
         setUser(JSON.parse(storedUser));
       } else {
-        router.push(`/sign-in?redirect=${encodeURIComponent(pathname)}`);
+        router.push(`/sign-in?redirect=${pathname}`);
       }
     }, [pathname, router]);
 
