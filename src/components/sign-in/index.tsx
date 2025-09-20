@@ -13,7 +13,7 @@ import { useContext, useState } from "react";
 import { ISignInProps } from "./type";
 import { loginUser } from "../services/userService";
 import { Context } from "@/context/mainContext";
-
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SignIn = () => {
   const [formData, setFormData] = useState<ISignInProps>({
@@ -21,7 +21,10 @@ const SignIn = () => {
     password: "",
   });
 
-  const {dispatch} = useContext(Context);
+  const searchParams = useSearchParams();
+
+  const { dispatch } = useContext(Context);
+  const router = useRouter();
 
   const [errors, setErrors] = useState<Partial<ISignInProps>>({});
 
@@ -51,11 +54,13 @@ const SignIn = () => {
       }
       localStorage.setItem("token", res.token);
       localStorage.setItem("user", JSON.stringify(res.user));
-      dispatch("user", res.user)
-      
+      dispatch("user", res.user);
+
+      const redirect = searchParams.get("redirect");
+      router.push(redirect ?? "/");
     } catch (error) {
       console.error("login error :", error);
-      alert("somerhing wnet wrong");
+      alert("somerhing went wrong");
     }
   };
 
@@ -117,7 +122,6 @@ const SignIn = () => {
                   autoComplete={input.autocomplete}
                   icon={input.icon}
                   onChange={handleChange}
-                  error={errors[input.name]}
                   value={formData[input.name]}
                   style={{
                     width: "100%",
@@ -125,6 +129,7 @@ const SignIn = () => {
                   }}
                 />
               </div>
+              <span className={styles.error}>{errors[input.name]}</span>
             </div>
           ))}
           <div className={styles.authButton}>

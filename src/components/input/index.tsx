@@ -22,24 +22,14 @@ const Input = ({
     setSecure((prev) => !prev);
   };
 
-  const inputType =
-    type === "password"
-      ? secure
-        ? "password"
-        : "text"
-      : type; 
+  const inputType = type === "password" ? (secure ? "password" : "text") : type;
 
   return (
     <div className={styles.mainWrapper}>
       {label && <span className={styles.label}>{label}</span>}
       <div className={styles.input}>
         {icon && icon}
-        <input
-          {...rest}
-          className={className}
-          style={style}
-          type={inputType}
-        />
+        <input {...rest} className={className} style={style} type={inputType} />
         {type === "password" && (
           <button
             tabIndex={-1}
